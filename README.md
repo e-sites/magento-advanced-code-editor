@@ -9,7 +9,9 @@ Magento Advanced HTML Editor
 ## Introduction
 If you're familiar with Magento and you've spent some time working with CMS pages and static blocks, you'll know that producing clean semantic HTML markup with the TinyMCE editor can be quite a hassle. Especially when fiddling around in the "design view" it'll often result in invalid or unwanted HTML. Of course you can open up the default source editor and go from there. But you probably know that this will not be very pleasant as well, the code looks like a big bowl of tag soup and editing it can give you a real headache.
 
-This extension adds an additional editor to Magento's WYSIWYG editor that is similar to your favorite IDE. It offers several great <a href="#Features">features</a> that will not only save you quite a bit of time but also makes editing HTML a lot easier
+This extension adds an additional editor to Magento's WYSIWYG editor that is similar to your favorite IDE. It offers several great <a href="#Features">features</a> that will not only save you quite a bit of time but also makes editing HTML a lot easier.
+
+![alt tag](http://github.e-sites.nl/_img/editor-dialog.png)
 
 ###CodeMirror
 Under the hood this extension uses <a href="https://codemirror.net/">CodeMirror</a> and a handful of it's addons. In case you never heard of CodeMirror, let us quote the author of this great library real quick:
@@ -32,6 +34,8 @@ The following features are available can be enabled or disabled via System > Con
 * Line wrapping
 
 Also, you can change it's appearance by picking one of the 36 available <a href="https://codemirror.net/demo/theme.html">themes</a> or overriding the default `font-size`.
+
+![alt tag](http://github.e-sites.nl/_img/extension-conf.png)
 
 ##Getting started
 1. Download the extension
