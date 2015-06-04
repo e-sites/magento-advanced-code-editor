@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Esites
+ * @package     Esites_Editor
+ * @copyright   Copyright (c) 2015 E-sites (http://www.e-sites.nl)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Esites_Editor>
+            <version>0.1.0</version>
+        </Esites_Editor>
+    </modules>
+
+    <global>
+        <models>
+            <editor>
+                <class>Esites_Editor_Model</class>
+            </editor>
+        </models>
+        <helpers>
+            <editor>
+                <class>Esites_Editor_Helper</class>
+            </editor>
+        </helpers>
+    </global>
+
+    <default>
+        <editor>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <prefs>
+                <keymap>default</keymap>
+                <emmet>1</emmet>
+                <activeLine>1</activeLine>
+                <codeFolding>0</codeFolding>
+                <indentUnit>4</indentUnit>
+                <lineWrapping>1</lineWrapping>
+                <matchTags>1</matchTags>
+                <matchHighlight>0</matchHighlight>
+                <closeTags>1</closeTags>
+                <search>1</search>
+            </prefs>
+            <appearance>
+                <theme>default</theme>
+                <fontSize>12</fontSize>
+                <autoFormat>1</autoFormat>
+            </appearance>
+        </editor>
+    </default>
+
+    <adminhtml>
+        <events>
+            <cms_wysiwyg_config_prepare>
+                <observers>
+                    <wysiwyg_observer>
+                        <type>singleton</type>
+                        <class>editor/observer</class>
+                        <method>prepareWidgetsPluginConfig</method>
+                    </wysiwyg_observer>
+                </observers>
+            </cms_wysiwyg_config_prepare>
+        </events>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <editor>
+                                            <title>E-sites - All</title>
+                                        </editor>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+</config>

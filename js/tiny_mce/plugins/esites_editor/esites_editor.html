@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Advanced HTML Editor</title>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
+		<link rel="stylesheet" href="js/vendor/codemirror/lib/codemirror.css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<form name="source" id="form-editor">
+			<textarea name="htmlSource" id="htmlSource" rows="15" cols="100" dir="ltr"></textarea>
+			<div class="mceActionPanel">
+				<input type="submit" role="button" name="insert" value="{#update}" id="insert">
+				<input type="button" role="button" name="cancel" value="{#cancel}" id="cancel">
+			</div>
+		</form>
+		<script src="js/vendor/requirejs/require.min.js"></script>
+		<script src="../../tiny_mce_popup.js"></script>
+		<script>
+			tinyMCEPopup.onInit.add(function () {
+				requirejs(['js/app'])
+			});
+		</script>
+	</body>
+</html>

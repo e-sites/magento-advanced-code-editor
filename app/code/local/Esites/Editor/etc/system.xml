@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Esites
+ * @package     Esites_Editor
+ * @copyright   Copyright (c) 2015 E-sites (http://www.e-sites.nl)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <esites translate="label" module="editor">
+            <label><![CDATA[<img width="14" style="vertical-align:middle;display:inline-block;" src="http://frontend.e-sites.nl/img/esites-symbol.png" alt="" border="0"> E-sites]]></label>
+            <sort_order>1000</sort_order>
+        </esites>
+    </tabs>
+    <sections>
+        <editor translate="label" module="editor">
+            <label>Advanced HTML Editor</label>
+            <tab>esites</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="editor">
+                    <label>General</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[By enabling this feature a more advanced HTML editor, based on <a href="http://codemirror.net/" target="_blank">CodeMirror</a>, will appear]]></comment>
+                        </enabled>
+                    </fields>
+                </general>
+                <prefs translate="label" module="editor">
+                    <label>Preferences</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <codeFolding>
+                            <label>Code folding</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </codeFolding>
+                        <emmet translate="label">
+                            <label>Emmet plugin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[By enabling this plugin the HTML editor will be extended with <a href="https://github.com/emmetio/codemirror" target="_blank">Emmet</a> functionality]]></comment>
+                        </emmet>
+                        <activeLine translate="label">
+                            <label>Active line</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Styles the current cursor line]]></comment>
+                        </activeLine>
+                        <keymap>
+                            <label>Keymap</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>editor/system_config_source_keymap_values</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Key maps are ways to associate keys with functionality.]]></comment>
+                        </keymap>
+                        <indentUnit>
+                            <label>Indent unit</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>editor/system_config_source_indentunit_values</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[How many spaces a block should be indented.]]></comment>
+                        </indentUnit>
+                        <lineWrapping>
+                            <label>Line wrapping</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Whether to show line numbers to the left of the editor.]]></comment>
+                        </lineWrapping>
+                        <matchTags>
+                            <label>Match tags</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Will cause HTML tags around the cursor to be highlighted]]></comment>
+                        </matchTags>
+                        <matchHighlight>
+                            <label>Match highlight</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Search and highlight occurences of the selected text]]></comment>
+                        </matchHighlight>
+                        <closeTags>
+                            <label>Close tags</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Will auto-close HTML tags]]></comment>
+                        </closeTags>
+                        <search>
+                            <label>Search</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Provides a dialog to search through the code]]></comment>
+                        </search>
+                    </fields>
+                </prefs>
+                <appearance translate="label" module="editor">
+                    <label>Appearance</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <fontSize translate="label">
+                            <label>Font size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Font size of the editor (in pixels)]]></comment>
+                        </fontSize>
+                        <theme translate="label">
+                            <label>Theme</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>editor/system_config_source_theme_values</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[<a href="https://codemirror.net/demo/theme.html" target="_blank">Click here for a demo of all available themes</a>]]></comment>
+                        </theme>
+                        <autoFormat translate="label">
+                            <label>Auto format</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Whether the HTML code should be auto formatted or not]]></comment>
+                        </autoFormat>
+                    </fields>
+                </appearance>
+            </groups>
+        </editor>
+    </sections>
+</config>
