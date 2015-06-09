@@ -20,7 +20,7 @@
 
 class Esites_Editor_Model_System_Config_Source_Theme_Values extends Varien_Object
 {
-    protected $aThemes = array(
+    protected $themes = array(
         'default',
         '3024-day',
         '3024-night',
@@ -61,13 +61,13 @@ class Esites_Editor_Model_System_Config_Source_Theme_Values extends Varien_Objec
 
     public function toOptionArray()
     {
-        $aValues = array_map(function ($sVal) {
+        $values = array_map(function ($val) {
             return array(
-                'value' => $sVal,
-                'label' => $sVal
+                'value' => $val,
+                'label' => $val
             );
-        }, $this->aThemes);
+        }, $this->themes);
 
-        return $aValues;
+        return $values;
     }
 }

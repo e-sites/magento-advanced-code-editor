@@ -35,25 +35,26 @@ class Esites_Editor_Model_Config extends Varien_Object
      */
     public function getPluginSettings($config)
     {
+        $store = Mage::app()->getStore();
         $configPlugins = $config->getData('plugins');
         $EsitesEditorPlugin = array(
             array(
                 'name' => 'esites_editor',
                 'src' => Mage::getBaseUrl('js') . 'tiny_mce/plugins/esites_editor/esites_editor_plugin.js',
                 'config' => array(
-                    'theme' => (string) Mage::getStoreConfig('editor/appearance/theme', Mage::app()->getStore()),
-                    'emmet' => (bool) Mage::getStoreConfig('editor/prefs/emmet', Mage::app()->getStore()),
-                    'activeLine' => (bool) Mage::getStoreConfig('editor/prefs/activeLine', Mage::app()->getStore()),
-                    'codeFolding' => (bool) Mage::getStoreConfig('editor/prefs/codeFolding', Mage::app()->getStore()),
-                    'indentUnit' => (int) Mage::getStoreConfig('editor/prefs/indentUnit', Mage::app()->getStore()),
-                    'lineWrapping' => (bool) Mage::getStoreConfig('editor/prefs/lineWrapping', Mage::app()->getStore()),
-                    'autoFormat' => (bool) Mage::getStoreConfig('editor/appearance/autoFormat', Mage::app()->getStore()),
-                    'matchTags' => (bool) Mage::getStoreConfig('editor/prefs/matchTags', Mage::app()->getStore()),
-                    'matchHighlight' => (bool) Mage::getStoreConfig('editor/prefs/matchHighlight', Mage::app()->getStore()),
-                    'closeTags' => (bool) Mage::getStoreConfig('editor/prefs/closeTags', Mage::app()->getStore()),
-                    'search' => (bool) Mage::getStoreConfig('editor/prefs/search', Mage::app()->getStore()),
-                    'fontSize' => (string) Mage::getStoreConfig('editor/appearance/fontSize', Mage::app()->getStore()),
-                    'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', Mage::app()->getStore())
+                    'theme' => (string) Mage::getStoreConfig('editor/appearance/theme', $store),
+                    'emmet' => (bool) Mage::getStoreConfig('editor/prefs/emmet', $store),
+                    'activeLine' => (bool) Mage::getStoreConfig('editor/prefs/activeLine', $store),
+                    'codeFolding' => (bool) Mage::getStoreConfig('editor/prefs/codeFolding', $store),
+                    'indentUnit' => (int) Mage::getStoreConfig('editor/prefs/indentUnit', $store),
+                    'lineWrapping' => (bool) Mage::getStoreConfig('editor/prefs/lineWrapping', $store),
+                    'autoFormat' => (bool) Mage::getStoreConfig('editor/appearance/autoFormat', $store),
+                    'matchTags' => (bool) Mage::getStoreConfig('editor/prefs/matchTags', $store),
+                    'matchHighlight' => (bool) Mage::getStoreConfig('editor/prefs/matchHighlight', $store),
+                    'closeTags' => (bool) Mage::getStoreConfig('editor/prefs/closeTags', $store),
+                    'search' => (bool) Mage::getStoreConfig('editor/prefs/search', $store),
+                    'fontSize' => (string) Mage::getStoreConfig('editor/appearance/fontSize', $store),
+                    'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', $store)
                 )
             )
         );

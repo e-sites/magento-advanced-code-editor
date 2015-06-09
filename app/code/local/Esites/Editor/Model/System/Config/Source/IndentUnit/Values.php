@@ -20,22 +20,22 @@
 
 class Esites_Editor_Model_System_Config_Source_IndentUnit_Values extends Varien_Object
 {
-    protected $aIndentUnits = array(
+    protected $indentUnits = array(
         '2' => '2',
         '4' => '4'
     );
 
     public function toOptionArray()
     {
-        $aValues = array();
+        $values = array();
 
-        foreach ($this->aIndentUnits as $sKey => $sLabel) {
-            $aValues[] = array(
-                'value' => $sKey,
-                'label' => $sLabel
+        foreach ($this->indentUnits as $key => $label) {
+            $values[] = array(
+                'value' => $key,
+                'label' => $label
             );
         }
 
-        return $aValues;
+        return $values;
     }
 }

@@ -20,7 +20,7 @@
 
 class Esites_Editor_Model_System_Config_Source_Keymap_Values extends Varien_Object
 {
-    protected $aKeymaps = array(
+    protected $keymaps = array(
         'default' => 'Default',
         'emacs' => 'Emacs',
         'vim' => 'Vim',
@@ -29,15 +29,15 @@ class Esites_Editor_Model_System_Config_Source_Keymap_Values extends Varien_Obje
 
     public function toOptionArray()
     {
-        $aValues = array();
+        $values = array();
 
-        foreach ($this->aKeymaps as $sKey => $sLabel) {
-            $aValues[] = array(
-                'value' => $sKey,
-                'label' => $sLabel
+        foreach ($this->keymaps as $key => $label) {
+            $values[] = array(
+                'value' => $key,
+                'label' => $label
             );
         }
 
-        return $aValues;
+        return $values;
     }
 }
