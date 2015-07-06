@@ -3,7 +3,7 @@
  * This is the TinyMCE plugin of the Magento extension that incorporates the CodeMirror library
  *
  * @author  : Boye Oomens <boye@e-sites.nl>
- * @version : 0.2.0
+ * @version : 0.2.1
  * @license : OSL 3.0
  * @see     : http://github.e-sites.nl/magento-advanced-html-editor/
  * @see     : http://codemirror.net/
@@ -16,8 +16,9 @@
 	'use strict';
 
 	var pluginName = 'esites_editor',
-		/*jshint camelcase:false */
-		plugins = wysiwygpage_content.config.plugins,
+		/*jshint sub:true */
+		section = window['wysiwygpage_content'] || window['wysiwygblock_content'],
+		plugins = section.config.plugins,
 		each = tinymce.each,
 		tiny;
 
