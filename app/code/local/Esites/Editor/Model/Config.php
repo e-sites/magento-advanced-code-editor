@@ -19,7 +19,7 @@
  */
 
 /**
- * Widgets Plugin Config for Emmet
+ * Widgets Plugin Config for Esites_Editor
  *
  * @category    Esites
  * @package     Esites_Editor
