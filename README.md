@@ -38,6 +38,8 @@ Also, you can change it's appearance by picking one of the 36 available <a href=
 ![alt tag](http://github.e-sites.nl/_img/extension-conf.png)
 
 ##Getting started
+Aside from installing the extension through <a href="http://www.magentocommerce.com/magento-connect/advanced-html-editor.html">Magento Connect</a> you can do this manually as well.
+
 1. Download the extension
 2. Copy / paste the contents in your Magento root directory
 3. Log out of the admin panel and remove all cache files
