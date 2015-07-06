@@ -53,7 +53,7 @@ Browser support is similar to the support that CodeMirror offers. This means the
 * Opera: version 9 and up
 
 ##Credits
-We really must give credit to Marijn Haverbeke (of <a href="https://codemirror.net/">CodeMirror</a> fame) and of course all it's contributors. All we did was wrap the library up in a TinyMCE plugin and make it customizable through the Magento admin.
+We really must give credit to Marijn Haverbeke (of <a href="https://codemirror.net/">CodeMirror</a> fame) and of course all it's contributors. Because let's be honest, all we did was wrap the library up in a TinyMCE plugin and make it customizable through the Magento admin ;).
 
 ##License
 Copyright (C) 2015 E-sites, <a href="http://www.e-sites.nl/">http://e-sites.nl/</a> Licensed under the OSL v3.0
