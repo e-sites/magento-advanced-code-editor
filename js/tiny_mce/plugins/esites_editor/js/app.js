@@ -10,6 +10,7 @@
     'use strict';
 
     requirejs.config({
+        waitSeconds: 0,
         baseUrl: 'js/vendor',
         map: {
             '*': {
