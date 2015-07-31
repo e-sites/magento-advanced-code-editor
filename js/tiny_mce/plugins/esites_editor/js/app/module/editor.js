@@ -1,7 +1,7 @@
 define([
 	'codemirror/lib/codemirror'
 ], function (CodeMirror) {
-	return {
+	var ed = {
 		completeAfter: function (cm, pred) {
 			var cur = cm.getCursor();
 
@@ -16,14 +16,14 @@ define([
 		},
 
 		completeIfAfterLt: function (cm) {
-			return completeAfter(cm, function () {
+			return ed.completeAfter(cm, function () {
 				var cur = cm.getCursor();
 				return cm.getRange(CodeMirror.Pos(cur.line, cur.ch - 1), cur) == "<";
 			});
 		},
 
 		completeIfInTag: function (cm) {
-			return completeAfter(cm, function () {
+			return ed.completeAfter(cm, function () {
 				var tok = cm.getTokenAt(cm.getCursor());
 				if (tok.type == "string" && (!/['"]/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length == 1)) return false;
 				var inner = CodeMirror.innerMode(cm.getMode(), tok.state).state;
@@ -31,4 +31,6 @@ define([
 			});
 		}
 	};
+
+	return ed;
 });
