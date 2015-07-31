@@ -36,7 +36,7 @@
 				tinyMCEPopup.close();
 				return false;
 			}
-		}
+		};
 	});
 
 }(tinyMCEPopup));

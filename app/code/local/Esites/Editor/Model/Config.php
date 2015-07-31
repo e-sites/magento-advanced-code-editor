@@ -53,6 +53,7 @@ class Esites_Editor_Model_Config extends Varien_Object
                     'matchHighlight' => (bool) Mage::getStoreConfig('editor/prefs/matchHighlight', $store),
                     'closeTags' => (bool) Mage::getStoreConfig('editor/prefs/closeTags', $store),
                     'search' => (bool) Mage::getStoreConfig('editor/prefs/search', $store),
+                    'completion' => (bool) Mage::getStoreConfig('editor/prefs/completion', $store),
                     'fontSize' => (string) Mage::getStoreConfig('editor/appearance/fontSize', $store),
                     'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', $store)
                 )

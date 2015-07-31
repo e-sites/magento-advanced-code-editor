@@ -22,7 +22,7 @@
 <config>
     <modules>
         <Esites_Editor>
-            <version>0.2.1</version>
+            <version>0.3.0</version>
         </Esites_Editor>
     </modules>
 
@@ -55,6 +55,7 @@
                 <matchHighlight>0</matchHighlight>
                 <closeTags>1</closeTags>
                 <search>1</search>
+                <completion>0</completion>
             </prefs>
             <appearance>
                 <theme>default</theme>

@@ -3,9 +3,9 @@
  * This is the TinyMCE plugin of the Magento extension that incorporates the CodeMirror library
  *
  * @author  : Boye Oomens <boye@e-sites.nl>
- * @version : 0.2.1
+ * @version : 0.3.0
  * @license : OSL 3.0
- * @see     : http://github.e-sites.nl/magento-advanced-html-editor/
+ * @see     : https://github.com/e-sites/magento-advanced-html-editor
  * @see     : http://codemirror.net/
  * @see     : http://emmet.io/
  */
@@ -15,13 +15,28 @@
 
 	'use strict';
 
-	var pluginName = 'esites_editor',
-		/*jshint sub:true */
-		section = window['wysiwygpage_content'] || window['wysiwygblock_content'],
-		plugins = section.config.plugins,
+	var section, plugins, tiny,
+		pluginName = 'esites_editor',
 		each = tinymce.each,
-		tiny;
+		sections = [
+			'wysiwygpage_content',
+			'wysiwygblock_content',
+			'wysiwygtemplate_text'
+		];
 
+	// Determine which section is currently active
+	each(sections, function (s) {
+		if ( window[s] ) {
+			section = window[s];
+		}
+	});
+
+	// Fail silently when we're dealing with an unknown section
+	if ( !section ) {
+		return;
+	}
+
+	plugins = section.config.plugins;
 	tinymce.PluginManager.requireLangPack(pluginName);
 
 	tinymce.create('tinymce.plugins.EsitesEditorPlugin', {

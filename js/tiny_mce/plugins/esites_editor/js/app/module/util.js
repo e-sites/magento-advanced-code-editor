@@ -78,7 +78,7 @@ define(function () {
 
 			return proxy;
 		}
-	}
+	};
 
 	return util;
 });

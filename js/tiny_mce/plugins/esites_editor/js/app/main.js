@@ -24,14 +24,15 @@
 		'../app/var/deps',
 		'../app/module/popup',
 		'../app/module/util',
-		'../app/module/editor',
 		'codemirror/lib/codemirror',
+		'beautify/beautify',
+		'beautify/beautify-html',
 		'codemirror/mode/htmlmixed/htmlmixed',
 		'css!codemirror/addon/fold/foldgutter.css',
 		'css!codemirror/addon/search/matchesonscrollbar.css',
 		'css!codemirror/addon/dialog/dialog.css',
 		'css!codemirror/addon/hint/show-hint.css'
-	], function (textarea, addons, cmOptions, plugin, deps, popup, util, editor, CodeMirror) {
+	], function (textarea, addons, cmOptions, plugin, deps, popup, util, CodeMirror, js_beautify, formatter) {
 
 		// Expose to global scope (needed for the formatting util)
 		window.CodeMirror = CodeMirror;
@@ -43,7 +44,17 @@
 		 */
 		function _prepareEditor() {
 			/*jshint camelcase:false */
-			textarea.value = tinyMCEPopup.editor.getContent({source_view : true});
+			var code = tinyMCEPopup.editor.getContent({source_view : true});
+
+			// Auto-format code
+			if ( plugin.settings.autoFormat ) {
+				code = formatter.html_beautify(code, {
+					indent_size: plugin.settings.indentUnit,
+					wrap_line_length: 100
+				});
+			}
+
+			textarea.value = code;
 
 			// Set custom font-size if it differs from the default value
 			if ( plugin.settings.fontSize !== '12' ) {
@@ -80,11 +91,6 @@
 		function _initCodeMirror() {
 			cm = CodeMirror.fromTextArea(textarea, cmOptions);
 			cm.setSize(null, tinyMCEPopup.dom.getViewPort(window).h - 65);
-
-			// Auto-format code
-			if ( plugin.settings.autoFormat ) {
-				editor.formatCode(cm);
-			}
 
 			// Load Emmet separately (if necessary)
 			if ( plugin.settings.emmet ) {

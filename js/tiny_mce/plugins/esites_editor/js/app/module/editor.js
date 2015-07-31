@@ -2,45 +2,33 @@ define([
 	'codemirror/lib/codemirror'
 ], function (CodeMirror) {
 	return {
+		completeAfter: function (cm, pred) {
+			var cur = cm.getCursor();
 
-		/**
-		 * Returns the selected range of the give editor instance
-		 *
-		 * @param  {Object} editor CodeMirror instance
-		 * @return {Object}
-		 */
-		getSelectedRange: function (editor) {
-			return {
-				from: editor.getCursor(true),
-				to: editor.getCursor(false)
-			};
+			if (!pred || pred()) setTimeout(function () {
+				if (!cm.state.completionActive)
+					cm.showHint({
+						completeSingle: false
+					});
+			}, 100);
+
+			return CodeMirror.Pass;
 		},
 
-		/**
-		 * Handles all logic that's needed for code formatting
-		 *
-		 * @param {Object} editor CodeMirror instance
-		 */
-		formatCode: function (editor) {
-			var range, off,
-				charWidth = editor.defaultCharWidth();
-				basePadding = 4;
-
-			CodeMirror.commands['selectAll'](editor);
-
-			range = this.getSelectedRange(editor);
-
-			editor.autoFormatRange(range.from, range.to);
-			editor.scrollTo(0,0);
-			editor.setCursor(0);
-
-			editor.on('renderLine', function (editor, line, elt) {
-				off = CodeMirror.countColumn(line.text, null, editor.getOption('tabSize')) * charWidth;
-				elt.style.textIndent = '-' + off + 'px';
-				elt.style.paddingLeft = (basePadding + off) + 'px';
+		completeIfAfterLt: function (cm) {
+			return completeAfter(cm, function () {
+				var cur = cm.getCursor();
+				return cm.getRange(CodeMirror.Pos(cur.line, cur.ch - 1), cur) == "<";
 			});
+		},
 
-			editor.refresh();
+		completeIfInTag: function (cm) {
+			return completeAfter(cm, function () {
+				var tok = cm.getTokenAt(cm.getCursor());
+				if (tok.type == "string" && (!/['"]/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length == 1)) return false;
+				var inner = CodeMirror.innerMode(cm.getMode(), tok.state).state;
+				return inner.tagName;
+			});
 		}
-	}
+	};
 });

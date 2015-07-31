@@ -1,4 +1,4 @@
-define(function () {
+define(['./plugin', '../module/editor'], function (plugin, editor) {
 	return {
 		'activeLine': {
 			deps: [
@@ -17,6 +17,29 @@ define(function () {
 			options: {
 				foldGutter: true,
 				gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter']
+			}
+		},
+		'completion': {
+			deps: [
+				'codemirror/addon/hint/show-hint',
+  				'codemirror/addon/hint/xml-hint',
+  				'codemirror/addon/hint/html-hint'
+			],
+			options: {
+				extraKeys: {
+					"'<'": editor.completeAfter,
+					"'/'": editor.completeIfAfterLt,
+					"' '": editor.completeIfInTag,
+					"Ctrl-Space": 'autocomplete'
+				}
+			}
+		},
+		'keymap': {
+			deps: [
+				(plugin.settings.keymap !== 'default' ? 'codemirror/keymap/' + plugin.settings.keymap : '')
+			],
+			options: {
+				keyMap: plugin.settings.keymap
 			}
 		},
 		'lineWrapping': {
