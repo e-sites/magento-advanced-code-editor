@@ -28,6 +28,7 @@ The following features are available can be enabled or disabled via System > Con
 * Search functionality
 * Code folding
 * Auto-close tags
+* HTML autocomplete
 * Highlight match tags
 * Highlight occurences of selected text
 * Highlighting the active line
