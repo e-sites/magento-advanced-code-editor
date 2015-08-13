@@ -7,7 +7,7 @@ Magento Advanced HTML Editor
 </blockquote>
 
 ## Introduction
-If you're familiar with Magento and you've spent some time working with CMS pages and static blocks, you'll know that producing clean semantic HTML markup with the TinyMCE editor can be quite a hassle. Especially when fiddling around in the "design view" it'll often result in invalid or unwanted HTML. Of course you can open up the default source editor and go from there. But you probably know that this will not be very pleasant as well, the code looks like a big bowl of tag soup and editing it can give you a real headache.
+If you're familiar with Magento and you've spent some time working with it's WYSIWYG editor, you'll know that producing clean semantic HTML markup with the TinyMCE editor can be quite a hassle. Especially when fiddling around in the "design view" it'll often result in invalid or unwanted HTML. Of course you can open up the default source editor and go from there. But you probably know that this will not be very pleasant as well, the code looks like a big bowl of tag soup and editing it can give you a real headache.
 
 This extension adds an additional editor to Magento's WYSIWYG editor that is similar to your favorite IDE. It offers several great <a href="#Features">features</a> that will not only save you quite a bit of time but also makes editing HTML a lot easier.
 
@@ -45,6 +45,11 @@ Aside from installing the extension through <a href="http://www.magentocommerce.
 2. Copy / paste the contents in your Magento root directory
 3. Log out of the admin panel and remove all cache files
 4. Navigate to System > Configuration > E-sites > Advanced HTML Editor and enable the extension
+
+##Transactional Emails
+As of version 0.4.0 the editor is available in the Transactional Emails section as well. Because it works as a standalone editor you do not have to install any other extension that provides a WYSIWYG editor in this particular section.
+
+![alt tag](http://github.e-sites.nl/_img/emails.png)
 
 ##Browser support
 Browser support is similar to the support that CodeMirror offers. This means the desktop versions of the following browsers, in standards mode (HTML5 `<!doctype html>` recommended) are supported:

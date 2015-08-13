@@ -23,7 +23,7 @@
     <modules>
         <Esites_Editor>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Esites_Editor>
     </modules>
 </config>

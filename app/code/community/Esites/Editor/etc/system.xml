@@ -51,8 +51,19 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[By enabling this feature a more advanced HTML editor, based on <a href="http://codemirror.net/" target="_blank">CodeMirror</a>, will appear]]></comment>
                         </enabled>
+                        <sections translate="label">
+                            <label>Sections</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>editor/system_config_source_sections_values</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>validate-select</validate>
+                            <comment><![CDATA[Select the sections where the editor should be active]]></comment>
+                        </sections>
                     </fields>
                 </general>
                 <prefs translate="label" module="editor">
@@ -72,7 +83,7 @@
                             <show_in_store>0</show_in_store>
                         </codeFolding>
                         <emmet translate="label">
-                            <label>Emmet plugin</label>
+                            <label>Activate Emmet plugin</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>0</sort_order>
@@ -82,14 +93,13 @@
                             <comment><![CDATA[By enabling this plugin the HTML editor will be extended with <a href="https://github.com/emmetio/codemirror" target="_blank">Emmet</a> functionality]]></comment>
                         </emmet>
                         <activeLine translate="label">
-                            <label>Active line</label>
+                            <label>Highlight active line</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>0</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Styles the current cursor line]]></comment>
                         </activeLine>
                         <keymap>
                             <label>Keymap</label>
@@ -99,18 +109,8 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Key maps are ways to associate keys with functionality.]]></comment>
+                            <comment><![CDATA[Keymaps are ways to associate keys with functionality]]></comment>
                         </keymap>
-                        <indentUnit>
-                            <label>Indent unit</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>editor/system_config_source_indentunit_values</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment><![CDATA[How many spaces a block should be indented.]]></comment>
-                        </indentUnit>
                         <lineWrapping>
                             <label>Line wrapping</label>
                             <frontend_type>select</frontend_type>
@@ -119,10 +119,10 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Whether the editor should scroll or wrap for long lines.]]></comment>
+                            <comment><![CDATA[Whether the editor should scroll or wrap for long lines]]></comment>
                         </lineWrapping>
                         <matchTags>
-                            <label>Match tags</label>
+                            <label>Highlight tag matches</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>4</sort_order>
@@ -139,37 +139,34 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Search and highlight occurences of the selected text]]></comment>
+                            <comment><![CDATA[Search and highlight occurrences of the selected text]]></comment>
                         </matchHighlight>
                         <closeTags>
-                            <label>Close tags</label>
+                            <label>Auto-close tags</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Will auto-close HTML tags]]></comment>
                         </closeTags>
                         <search>
-                            <label>Search</label>
+                            <label>Activate search dialog</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Provides a dialog to search through the code]]></comment>
                         </search>
                         <completion>
-                            <label>Autocomplete</label>
+                            <label>HTML autocomplete</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>6</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment><![CDATA[HTML tag and attribute completion]]></comment>
                         </completion>
                     </fields>
                 </prefs>
@@ -187,6 +184,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <validate>validate-number</validate>
                             <comment><![CDATA[Font size of the editor (in pixels)]]></comment>
                         </fontSize>
                         <theme translate="label">
@@ -199,16 +197,37 @@
                             <show_in_store>0</show_in_store>
                             <comment><![CDATA[<a href="https://codemirror.net/demo/theme.html" target="_blank">Click here for a demo of all available themes</a>]]></comment>
                         </theme>
+                        <indentUnit>
+                            <label>Indent unit</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>editor/system_config_source_indentunit_values</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[How many spaces a block should be indented]]></comment>
+                        </indentUnit>
                         <autoFormat translate="label">
                             <label>Auto format</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
+                            <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                             <comment><![CDATA[Whether the HTML code should be auto formatted or not]]></comment>
                         </autoFormat>
+                        <lineLength translate="label">
+                            <label>Wrap line length</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><autoFormat>1</autoFormat></depends>
+                            <validate>validate-number</validate>
+                            <comment><![CDATA[Wrap lines at next opportunity after N characters]]></comment>
+                        </lineLength>
                     </fields>
                 </appearance>
             </groups>

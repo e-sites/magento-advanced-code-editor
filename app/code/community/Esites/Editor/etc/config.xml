@@ -22,7 +22,7 @@
 <config>
     <modules>
         <Esites_Editor>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </Esites_Editor>
     </modules>
 
@@ -37,19 +37,26 @@
                 <class>Esites_Editor_Helper</class>
             </editor>
         </helpers>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <system_email_template_edit_form>Esites_Editor_Block_Adminhtml_System_Email_Template_Edit_Form</system_email_template_edit_form>
+                </rewrite>
+            </adminhtml>
+        </blocks>
     </global>
 
     <default>
         <editor>
             <general>
                 <enabled>0</enabled>
+                <sections>wysiwygpage_content</sections>
             </general>
             <prefs>
                 <keymap>default</keymap>
                 <emmet>1</emmet>
                 <activeLine>1</activeLine>
                 <codeFolding>0</codeFolding>
-                <indentUnit>4</indentUnit>
                 <lineWrapping>1</lineWrapping>
                 <matchTags>1</matchTags>
                 <matchHighlight>0</matchHighlight>
@@ -60,12 +67,23 @@
             <appearance>
                 <theme>default</theme>
                 <fontSize>12</fontSize>
+                <indentUnit>4</indentUnit>
                 <autoFormat>1</autoFormat>
+                <lineLength>100</lineLength>
             </appearance>
         </editor>
     </default>
 
     <adminhtml>
+         <translate>
+            <modules>
+                <Esites_Editor>
+                    <files>
+                        <default>Esites_Editor.csv</default>
+                    </files>
+                </Esites_Editor>
+            </modules>
+        </translate>
         <events>
             <cms_wysiwyg_config_prepare>
                 <observers>
@@ -89,7 +107,7 @@
                                 <config>
                                     <children>
                                         <editor>
-                                            <title>E-sites - All</title>
+                                            <title>E-sites - Advanced HTML Editor</title>
                                         </editor>
                                     </children>
                                 </config>
@@ -100,5 +118,4 @@
             </resources>
         </acl>
     </adminhtml>
-
 </config>

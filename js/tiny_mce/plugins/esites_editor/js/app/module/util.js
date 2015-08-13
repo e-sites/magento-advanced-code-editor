@@ -1,4 +1,11 @@
+/**
+ * Small helper / utility methods that are used throughout all modules
+ */
+
+/* global define */
 define(function () {
+
+	'use strict';
 
 	/**
 	 * Small collection of helper utilities

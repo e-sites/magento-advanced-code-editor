@@ -33,10 +33,10 @@ class Esites_Editor_Model_Config extends Varien_Object
      *
      * @return array
      */
-    public function getPluginSettings($config)
+    public function getPluginSettings($config=array())
     {
         $store = Mage::app()->getStore();
-        $configPlugins = $config->getData('plugins');
+        $configPlugins = (is_object($config) ? $config->getData('plugins') : array());
         $EsitesEditorPlugin = array(
             array(
                 'name' => 'esites_editor',
@@ -46,8 +46,9 @@ class Esites_Editor_Model_Config extends Varien_Object
                     'emmet' => (bool) Mage::getStoreConfig('editor/prefs/emmet', $store),
                     'activeLine' => (bool) Mage::getStoreConfig('editor/prefs/activeLine', $store),
                     'codeFolding' => (bool) Mage::getStoreConfig('editor/prefs/codeFolding', $store),
-                    'indentUnit' => (int) Mage::getStoreConfig('editor/prefs/indentUnit', $store),
+                    'indentUnit' => (int) Mage::getStoreConfig('editor/appearance/indentUnit', $store),
                     'lineWrapping' => (bool) Mage::getStoreConfig('editor/prefs/lineWrapping', $store),
+                    'lineLength' => (int) Mage::getStoreConfig('editor/appearance/lineLength', $store),
                     'autoFormat' => (bool) Mage::getStoreConfig('editor/appearance/autoFormat', $store),
                     'matchTags' => (bool) Mage::getStoreConfig('editor/prefs/matchTags', $store),
                     'matchHighlight' => (bool) Mage::getStoreConfig('editor/prefs/matchHighlight', $store),
@@ -55,7 +56,8 @@ class Esites_Editor_Model_Config extends Varien_Object
                     'search' => (bool) Mage::getStoreConfig('editor/prefs/search', $store),
                     'completion' => (bool) Mage::getStoreConfig('editor/prefs/completion', $store),
                     'fontSize' => (string) Mage::getStoreConfig('editor/appearance/fontSize', $store),
-                    'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', $store)
+                    'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', $store),
+                    'sections' => (string) Mage::getStoreConfig('editor/general/sections', $store)
                 )
             )
         );

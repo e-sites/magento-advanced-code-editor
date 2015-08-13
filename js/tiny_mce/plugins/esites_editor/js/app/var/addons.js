@@ -1,4 +1,17 @@
-define(['./plugin', '../module/editor'], function (plugin, editor) {
+/**
+ * Returns an object with all addons and their corresponding
+ * dependencies and options. Based on what the users selects in the
+ * admin panel, these addons will be loaded via RequireJS
+ */
+
+/* global define */
+define([
+	'./plugin',
+	'../module/code'
+], function (plugin, code) {
+
+	'use strict';
+
 	return {
 		'activeLine': {
 			deps: [
@@ -27,9 +40,9 @@ define(['./plugin', '../module/editor'], function (plugin, editor) {
 			],
 			options: {
 				extraKeys: {
-					"'<'": editor.completeAfter,
-					"'/'": editor.completeIfAfterLt,
-					"' '": editor.completeIfInTag,
+					"'<'": code.completeAfter,
+					"'/'": code.completeIfAfterLt,
+					"' '": code.completeIfInTag,
 					"Ctrl-Space": 'autocomplete'
 				}
 			}

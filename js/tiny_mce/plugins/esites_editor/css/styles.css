@@ -16,3 +16,20 @@ textarea {
 	background-position: bottom;
 	background-repeat: repeat-x;
 }
+
+.CodeMirror-lines {
+	line-height: normal;
+}
+
+/**
+ * Needed for Transaction Emails
+ */
+
+td.value textarea {
+	opacity: 1;
+}
+
+td.value .CodeMirror-wrap {
+	border: 1px solid;
+	border-color: #aaa #c8c8c8 #c8c8c8 #aaa;
+}

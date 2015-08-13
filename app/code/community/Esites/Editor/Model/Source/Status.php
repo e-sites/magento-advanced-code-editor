@@ -17,6 +17,7 @@
  * @copyright   Copyright (c) 2015 E-sites (http://www.e-sites.nl)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+
 class Esites_Editor_Model_Source_Status extends Varien_Object
 {
     const STATUS_QUEUED		= -1;

@@ -28,7 +28,7 @@
 class Esites_Editor_Model_Observer
 {
     /**
-     * Add additional settings to wysiwyg config (Emmet)
+     * Add additional settings to wysiwyg config
      *
      * @param Varien_Event_Observer $observer
      *
@@ -37,6 +37,7 @@ class Esites_Editor_Model_Observer
     public function prepareWidgetsPluginConfig(Varien_Event_Observer $observer)
     {
         $config = $observer->getEvent()->getConfig();
+        $config->setAddWidgets('true');
 
         if ($config->getData('add_widgets') && Mage::getStoreConfig('editor/general/enabled', Mage::app()->getStore())) {
             $settings = Mage::getModel('editor/config')->getPluginSettings($config);
