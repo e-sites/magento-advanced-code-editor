@@ -27,6 +27,35 @@
 class Esites_Editor_Model_Config extends Varien_Object
 {
     /**
+     * All available configuration options and their respective type
+     *
+     * @var array
+     */
+    protected $configOptions = array(
+        'editor/general/sections' => 'string',
+        'editor/general/selectors' => 'string',
+        'editor/prefs/emmet' => 'bool',
+        'editor/prefs/activeLine' => 'bool',
+        'editor/prefs/codeFolding' => 'bool',
+        'editor/prefs/lineWrapping' => 'bool',
+        'editor/prefs/matchTags' => 'bool',
+        'editor/prefs/matchHighlight' => 'bool',
+        'editor/prefs/trailingSpaces' => 'bool',
+        'editor/prefs/closeTags' => 'bool',
+        'editor/prefs/search' => 'bool',
+        'editor/prefs/completion' => 'bool',
+        'editor/prefs/lint' => 'bool',
+        'editor/prefs/keymap' => 'string',
+        'editor/appearance/theme' => 'string',
+        'editor/appearance/scrollbars' => 'string',
+        'editor/appearance/tabIndent' => 'bool',
+        'editor/appearance/indentUnit' => 'int',
+        'editor/appearance/lineLength' => 'int',
+        'editor/appearance/autoFormat' => 'bool',
+        'editor/appearance/fontSize' => 'string'
+    );
+
+    /**
      * Return config settings for widgets insertion plugin based on editor element config
      *
      * @param Varien_Object $config
@@ -35,33 +64,31 @@ class Esites_Editor_Model_Config extends Varien_Object
      */
     public function getPluginSettings($config=array())
     {
+        $config = array();
         $store = Mage::app()->getStore();
         $configPlugins = (is_object($config) ? $config->getData('plugins') : array());
-        $EsitesEditorPlugin = array(
-            array(
-                'name' => 'esites_editor',
-                'src' => Mage::getBaseUrl('js') . 'tiny_mce/plugins/esites_editor/esites_editor_plugin.js',
-                'config' => array(
-                    'theme' => (string) Mage::getStoreConfig('editor/appearance/theme', $store),
-                    'emmet' => (bool) Mage::getStoreConfig('editor/prefs/emmet', $store),
-                    'activeLine' => (bool) Mage::getStoreConfig('editor/prefs/activeLine', $store),
-                    'codeFolding' => (bool) Mage::getStoreConfig('editor/prefs/codeFolding', $store),
-                    'indentUnit' => (int) Mage::getStoreConfig('editor/appearance/indentUnit', $store),
-                    'lineWrapping' => (bool) Mage::getStoreConfig('editor/prefs/lineWrapping', $store),
-                    'lineLength' => (int) Mage::getStoreConfig('editor/appearance/lineLength', $store),
-                    'autoFormat' => (bool) Mage::getStoreConfig('editor/appearance/autoFormat', $store),
-                    'matchTags' => (bool) Mage::getStoreConfig('editor/prefs/matchTags', $store),
-                    'matchHighlight' => (bool) Mage::getStoreConfig('editor/prefs/matchHighlight', $store),
-                    'closeTags' => (bool) Mage::getStoreConfig('editor/prefs/closeTags', $store),
-                    'search' => (bool) Mage::getStoreConfig('editor/prefs/search', $store),
-                    'completion' => (bool) Mage::getStoreConfig('editor/prefs/completion', $store),
-                    'fontSize' => (string) Mage::getStoreConfig('editor/appearance/fontSize', $store),
-                    'keymap' => (string) Mage::getStoreConfig('editor/prefs/keymap', $store),
-                    'sections' => (string) Mage::getStoreConfig('editor/general/sections', $store)
-                )
-            )
+        $plugin = array(
+            'name' => 'esites_editor',
+            'src' => Mage::getBaseUrl('js') . 'tiny_mce/plugins/esites_editor/esites_editor_plugin.js'
         );
 
+        foreach ($this->configOptions as $option => $type) {
+            $opt = explode('/', $option);
+            $value = Mage::getStoreConfig($option, $store);
+            settype($value, $type);
+            $config[$opt[2]] = $value;
+        }
+
+        if (!empty($config['selectors'])) {
+            $config['selectors'] = (array) explode(',', str_replace(array("\r", "\n"), '', $config['selectors']));
+        }
+
+        if (!empty($config['sections'])) {
+            $config['sections'] = (array) explode(',', $config['sections']);
+        }
+
+        $plugin['config'] = $config;
+        $EsitesEditorPlugin = array($plugin);
         $variableConfig['plugins'] = array_merge($EsitesEditorPlugin, $configPlugins);
 
         return $variableConfig;

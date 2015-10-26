@@ -22,7 +22,7 @@
 <config>
     <modules>
         <Esites_Editor>
-            <version>0.4.1</version>
+            <version>0.5.0</version>
         </Esites_Editor>
     </modules>
 
@@ -38,11 +38,9 @@
             </editor>
         </helpers>
         <blocks>
-            <adminhtml>
-                <rewrite>
-                    <system_email_template_edit_form>Esites_Editor_Block_Adminhtml_System_Email_Template_Edit_Form</system_email_template_edit_form>
-                </rewrite>
-            </adminhtml>
+            <editor>
+                <class>Esites_Editor_Block</class>
+            </editor>
         </blocks>
     </global>
 
@@ -51,6 +49,7 @@
             <general>
                 <enabled>0</enabled>
                 <sections>wysiwygpage_content</sections>
+                <selectors></selectors>
             </general>
             <prefs>
                 <keymap>default</keymap>
@@ -60,21 +59,42 @@
                 <lineWrapping>1</lineWrapping>
                 <matchTags>1</matchTags>
                 <matchHighlight>0</matchHighlight>
+                <trailingSpaces>0</trailingSpaces>
                 <closeTags>1</closeTags>
                 <search>1</search>
                 <completion>0</completion>
+                <lint>0</lint>
             </prefs>
             <appearance>
                 <theme>default</theme>
+                <scrollbars>default</scrollbars>
                 <fontSize>12</fontSize>
                 <indentUnit>4</indentUnit>
+                <tabIndent>0</tabIndent>
                 <autoFormat>1</autoFormat>
                 <lineLength>100</lineLength>
             </appearance>
         </editor>
     </default>
 
+    <frontend>
+        <layout>
+            <updates>
+                <editor module="Esites_Editor">
+                    <file>esites_editor.xml</file>
+                </editor>
+            </updates>
+        </layout>
+    </frontend>
+
     <adminhtml>
+        <layout>
+            <updates>
+                <editor module="Esites_Editor">
+                    <file>esites_editor.xml</file>
+                </editor>
+            </updates>
+        </layout>
          <translate>
             <modules>
                 <Esites_Editor>

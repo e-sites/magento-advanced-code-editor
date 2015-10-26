@@ -2,10 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Advanced HTML Editor</title>
+		<title>Advanced Editor</title>
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
-		<link rel="stylesheet" href="js/vendor/codemirror/lib/codemirror.css">
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/styles.min-47f779f9.css">
 	</head>
 	<body>
 		<form name="source" id="form-editor">
@@ -15,11 +14,11 @@
 				<input type="button" role="button" name="cancel" value="{#cancel}" id="cancel">
 			</div>
 		</form>
-		<script src="js/vendor/requirejs/require.min.js"></script>
+		<script src="js/require.min-7f752fef.js"></script>
 		<script src="../../tiny_mce_popup.js"></script>
 		<script>
 			tinyMCEPopup.onInit.add(function () {
-				requirejs(['js/app']);
+				requirejs(['/js/esites_editor/dist/js/app.js']);
 			});
 		</script>
 	</body>

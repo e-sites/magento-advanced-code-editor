@@ -3,7 +3,7 @@
  * This is the TinyMCE plugin of the Magento extension that incorporates the CodeMirror library
  *
  * @author  : Boye Oomens <boye@e-sites.nl>
- * @version : 0.4.0
+ * @version : 0.5.0
  * @license : OSL 3.0
  * @see     : https://github.com/e-sites/magento-advanced-html-editor
  * @see     : http://codemirror.net/
@@ -83,7 +83,8 @@
 		defaults: {
 			emmet: false,
 			theme: 'default',
-			codeFolding: false
+			codeFolding: false,
+			selectors: []
 		},
 
 		/**
@@ -106,6 +107,7 @@
 			tiny.url = url;
 
 			tiny.settings = tinymce.extend(tiny.defaults, plugin.config);
+			tiny.instances = [];
 
 			// Finally, register the command and add the button
 			tiny.editor.addCommand('mceEsitesEditor', tiny.showSourceEditor);
@@ -120,6 +122,7 @@
 		 * Calls TinyMCE's windowManager to actually open the editor
 		 */
 		showSourceEditor: function () {
+			/* jshint camelcase:false */
 			tiny.editor.windowManager.open({
 				width: tiny.editor.getParam('code_dialog_width', 900),
 				height: tiny.editor.getParam('code_dialog_height', 600),

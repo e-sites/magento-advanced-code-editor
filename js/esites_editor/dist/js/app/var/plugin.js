@@ -1,0 +1,1 @@
+define(["./tinymcePopup"],function(tinyMCEPopup){"use strict";return tinyMCEPopup?tinyMCEPopup.editor.plugins.esites_editor:esites_editor});
