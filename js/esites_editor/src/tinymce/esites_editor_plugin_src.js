@@ -3,7 +3,7 @@
  * This is the TinyMCE plugin of the Magento extension that incorporates the CodeMirror library
  *
  * @author  : Boye Oomens <boye@e-sites.nl>
- * @version : 0.5.0
+ * @version : 0.5.1
  * @license : OSL 3.0
  * @see     : https://github.com/e-sites/magento-advanced-html-editor
  * @see     : http://codemirror.net/
@@ -50,20 +50,6 @@
 		if ( el.name === pluginName ) {
 			plugin.config = el.config;
 			allowedSections = plugin.config.sections;
-
-			// Filter product editors first, these are concatenated with |
-			// e.g. wysiwygdescription_editor|wysiwygshort_description_editor
-			if ( allowedSections.indexOf('|') !== -1 ) {
-				 allowedSections = allowedSections.split('|').join(',');
-			}
-
-			if ( allowedSections.indexOf(',') !== -1 ) {
-				 allowedSections = allowedSections.split(',');
-			}
-
-			if ( Object.prototype.toString.call(allowedSections) !== '[object Array]' ) {
-				allowedSections = [allowedSections];
-			}
 		}
 	});
 

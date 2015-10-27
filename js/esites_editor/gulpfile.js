@@ -166,5 +166,5 @@ gulp.task('editor', ['editor-clean'], function () {
 });
 
 gulp.task('release', ['jshint'], function () {
-	runSequence('editor-build', 'plugin-build');
+	runSequence('editor', 'plugin');
 });

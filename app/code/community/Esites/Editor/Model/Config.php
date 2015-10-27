@@ -64,6 +64,7 @@ class Esites_Editor_Model_Config extends Varien_Object
      */
     public function getPluginSettings($config=array())
     {
+        $i = 0;
         $config = array();
         $store = Mage::app()->getStore();
         $configPlugins = (is_object($config) ? $config->getData('plugins') : array());
@@ -85,6 +86,18 @@ class Esites_Editor_Model_Config extends Varien_Object
 
         if (!empty($config['sections'])) {
             $config['sections'] = (array) explode(',', $config['sections']);
+
+            foreach($config['sections'] as $key) {
+                $arr = array();
+
+                if (strpos($key, '|') !== false) {
+                    $arr = explode('|', $key);
+                    unset($config['sections'][$i]);
+                    $config['sections'] = array_merge(array_values($config['sections']), array_values($arr));
+                }
+
+                $i++;
+            }
         }
 
         $plugin['config'] = $config;
