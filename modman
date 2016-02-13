@@ -1,0 +1,10 @@
+app/code/community/Esites/Editor app/code/community/Esites/Editor
+app/etc/modules/Esites_Editor.xml app/etc/modules/Esites_Editor.xml
+js/tiny_mce/plugins/esites_editor js/tiny_mce/plugins/esites_editor
+js/esites_editor js/esites_editor
+app/locale/en_US/Esites_Editor.csv app/locale/en_US/Esites_Editor.csv
+app/locale/nl_NL/Esites_Editor.csv app/locale/nl_NL/Esites_Editor.csv
+app/design/frontend/base/default/template/esites_editor app/design/frontend/base/default/template/esites_editor
+app/design/frontend/base/default/layout/esites_editor.xml app/design/frontend/base/default/layout/esites_editor.xml
+app/design/adminhtml/default/default/template/esites_editor app/design/adminhtml/default/default/template/esites_editor
+app/design/adminhtml/default/default/layout/esites_editor.xml app/design/adminhtml/default/default/layout/esites_editor.xml
