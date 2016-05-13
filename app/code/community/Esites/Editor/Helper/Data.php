@@ -19,4 +19,13 @@
  */
 class Esites_Editor_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /**
+     * Returns the current extension version
+     *
+     * @return string
+     */
+    public function getExtensionVersion()
+    {
+        return (string) Mage::getConfig()->getNode()->modules->Esites_Editor->version;
+    }
 }

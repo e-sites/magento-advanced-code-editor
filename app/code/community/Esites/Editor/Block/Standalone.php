@@ -35,22 +35,11 @@ class Esites_Editor_Block_Standalone extends Mage_Core_Block_Template
      */
     public function getEditorConfig()
     {
-
         if (Mage::getStoreConfig('editor/general/enabled', Mage::app()->getStore())) {
             $this->_config = Mage::getModel('editor/config')->getPluginSettings();
             $this->_config = $this->_config['plugins'][0]['config'];
         }
 
         return $this->_config;
-    }
-
-    /**
-     * Returns the current extension version
-     *
-     * @return string
-     */
-    public function getExtensionVersion()
-    {
-        return (string) Mage::getConfig()->getNode()->modules->Esites_Editor->version;
     }
 }

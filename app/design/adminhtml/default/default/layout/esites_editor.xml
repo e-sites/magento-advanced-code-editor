@@ -21,7 +21,9 @@
 -->
 <layout>
 	<default>
-        <block type="editor/standalone" name="standalone" template="esites_editor/standalone.phtml"></block>
+        <reference name="root">
+            <block type="editor/standalone" name="standalone" template="esites_editor/standalone.phtml"></block>
+        </reference>
         <reference name="head">
             <action method="addItem" ifconfig="editor/general/enabled">
                 <type>js_css</type>
@@ -31,7 +33,6 @@
                 <type>js_css</type>
                 <name>esites_editor/dist/css/styles.css</name>
             </action>
-            <block type="editor/standalone" name="standalone" template="esites_editor/standalone.phtml"></block>
         </reference>
         <reference name="notifications">
             <action method="append" ifconfig="editor/general/enabled">

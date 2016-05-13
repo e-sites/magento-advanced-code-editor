@@ -21,19 +21,21 @@
 -->
 <layout version="0.1.0">
     <default>
+        <reference name="root">
+            <block type="editor/standalone" name="standalone" template="esites_editor/standalone.phtml"></block>
+        </reference>
         <reference name="head">
-            <action method="addItem" ifconfig="editor/general/enabled">
+            <action method="addItem" ifconfig="editor/general/enableFrontend">
                 <type>js_css</type>
                 <name>esites_editor/dist/js/vendor/codemirror/lib/codemirror.css</name>
             </action>
-            <action method="addItem" ifconfig="editor/general/enabled">
+            <action method="addItem" ifconfig="editor/general/enableFrontend">
                 <type>js_css</type>
                 <name>esites_editor/dist/css/styles.css</name>
             </action>
-            <block type="editor/standalone" name="standalone" template="esites_editor/standalone.phtml"></block>
         </reference>
-        <reference name="root">
-            <action method="append" ifconfig="editor/general/enabled">
+        <reference name="footer">
+            <action method="append" ifconfig="editor/general/enableFrontend">
                 <block>standalone</block>
             </action>
         </reference>

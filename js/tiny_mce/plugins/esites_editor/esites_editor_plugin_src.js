@@ -3,7 +3,7 @@
  * This is the TinyMCE plugin of the Magento extension that incorporates the CodeMirror library
  *
  * @author  : Boye Oomens <boye@e-sites.nl>
- * @version : 0.5.1
+ * @version : 0.6.0
  * @license : OSL 3.0
  * @see     : https://github.com/e-sites/magento-advanced-html-editor
  * @see     : http://codemirror.net/

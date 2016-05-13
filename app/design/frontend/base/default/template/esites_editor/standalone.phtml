@@ -25,7 +25,7 @@
 		var doc = window.document,
 			esites_editor = {
 				instances: [],
-				version: '<?php echo $this->getExtensionVersion(); ?>',
+				version: '<?php echo Mage::helper('editor')->getExtensionVersion(); ?>',
 				settings: <?php echo json_encode($this->getEditorConfig()); ?>,
 				init: function () {
 					requirejs(['/js/esites_editor/dist/js/app.js']);
@@ -39,5 +39,5 @@
 		}
 
 		window.esites_editor = esites_editor;
-	}(this));
+	}(window));
 </script>

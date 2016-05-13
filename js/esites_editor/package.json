@@ -1,6 +1,6 @@
 {
   "name": "magento-advanced-editor",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "An advanced code editor that'll make it much more easier to produce clean semantic markup for Magento",
   "author": "Boye Oomens <hello@boye.io>",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "codemirror": "^5.8.0",
+    "codemirror": "^5.14.2",
     "del": "^2.0.2",
     "emmet-codemirror": "^1.2.5",
     "gator": "^1.2.4",

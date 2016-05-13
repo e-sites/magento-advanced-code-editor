@@ -26,6 +26,15 @@
             <sort_order>1000</sort_order>
         </esites>
     </tabs>
+    <version translate="label">
+        <label>MyModule extension version</label>
+        <frontend_type>text</frontend_type>
+        <frontend_model>Esites_Editor_Block_Adminhtml_Version</frontend_model>
+        <sort_order>0</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+    </version>
     <sections>
         <editor translate="label" module="editor">
             <label>Advanced Code Editor</label>
@@ -43,20 +52,39 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
+                        <version translate="label">
+                            <label>Version</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>Esites_Editor_Block_Adminhtml_Version</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </version>
                         <enabled translate="label">
                             <label>Enable</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>0</sort_order>
+                            <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </enabled>
+                        <enableFrontend translate="label">
+                            <label>Enable in front-end</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Enables the stand-alone editor in the front-end]]></comment>
+                        </enableFrontend>
                         <sections translate="label">
                             <label>Sections</label>
                             <frontend_type>multiselect</frontend_type>
                             <source_model>editor/system_config_source_sections_values</source_model>
-                            <sort_order>1</sort_order>
+                            <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
@@ -67,7 +95,7 @@
                         <selectors translate="label">
                             <label>Stand-alone selectors</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>3</sort_order>
+                            <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
