@@ -4,7 +4,7 @@
  * @see http://www.tinymce.com/wiki.php/API3:class.tinyMCEPopup
  */
 
-/* global define, tinymce */
+/*global define, tinymce*/
 define([
 	'../var/tinymcePopup',
 	'../var/targets',

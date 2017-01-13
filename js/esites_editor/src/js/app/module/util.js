@@ -2,7 +2,7 @@
  * Small helper / utility methods that are used throughout all modules
  */
 
-/* global define */
+/*global define*/
 define(function (undef) {
 
 	'use strict';

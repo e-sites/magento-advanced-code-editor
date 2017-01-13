@@ -5,7 +5,7 @@
  * @see http://jsbeautifier.org/
  */
 
-/* global define */
+/*global define*/
 define([
 	'codemirror/lib/codemirror',
 	'js-beautify/js/lib/beautify',

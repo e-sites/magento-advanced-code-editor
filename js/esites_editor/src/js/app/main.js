@@ -4,7 +4,7 @@
  * @author Boye Oomens <boye@e-sites.nl>
  */
 
-/*global define, requirejs */
+/*global define, requirejs*/
 (function () {
 
 	'use strict';

@@ -4,7 +4,7 @@
  * admin panel, these addons will be loaded via RequireJS
  */
 
-/* global define */
+/*global define*/
 define([
 	'./plugin',
 	'../module/code'

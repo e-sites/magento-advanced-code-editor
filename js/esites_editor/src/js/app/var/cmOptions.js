@@ -2,7 +2,7 @@
  * Default CodeMirror setup
  */
 
-/* global define */
+/*global define*/
 define([
 	'./plugin',
 	'./tinymcePopup',

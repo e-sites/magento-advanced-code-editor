@@ -2,7 +2,7 @@
  * Returns the textarea elements that are used as source for the CodeMirror instance.
  */
 
-/* global define */
+/*global define*/
 define([
 	'../module/util',
 	'./plugin'

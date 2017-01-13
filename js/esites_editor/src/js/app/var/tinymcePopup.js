@@ -3,7 +3,7 @@
  * dialog related logic. Will be ignored in standalone mode.
  */
 
-/* global define */
+/*global define*/
 define(function () {
 	'use strict';
 	return window['tinyMCEPopup'];

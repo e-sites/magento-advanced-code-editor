@@ -4,7 +4,7 @@
  * @see http://codemirror.net/
  */
 
-/* global define, requirejs */
+/*global define, requirejs, varienGlobalEvents*/
 define([
 	'codemirror/lib/codemirror',
 	'../var/plugin',
@@ -44,6 +44,15 @@ define([
 	editor.init = function () {
 		util.forEach(targets, editor.createInstance);
 
+		// Refresh CM instances when switching tabs
+		if ( typeof varienGlobalEvents !== 'undefined' ) {
+			varienGlobalEvents.attachEventHandler('showTab', function () {
+				util.forEach(editor.instances, function (cm) {
+					cm.refresh();
+				});
+			});
+		}
+
 		if ( editor.instances.length ) {
 			editor.instances[0].focus();
 		}
@@ -82,7 +91,7 @@ define([
 	 * @param  {Object} cm CodeMirror instance
 	 */
 	editor.syncValue = function (cm) {
-		cm.getTextArea().value = cm.getValue();
+		cm.save();
 	};
 
 	/**
@@ -125,6 +134,18 @@ define([
 			cursor = doc.getCursor();
 
 		doc.replaceRange(val, cursor);
+	};
+
+	/**
+	 * Handles widget/images insertation in stand-alone editor
+	 *
+	 * @param  {String} snippet  HTML snippet
+	 * @param  {Object} cursor
+	 */
+	editor.insertSnippet = function (snippet, cm, cursor) {
+		var doc = cm.getDoc();
+
+		doc.replaceRange(snippet, cursor);
 	};
 
 	return editor;

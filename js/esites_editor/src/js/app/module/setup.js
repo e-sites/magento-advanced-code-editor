@@ -5,7 +5,7 @@
  * @see https://github.com/guybedford/require-css
  */
 
-/* global define, requirejs */
+/*global define, requirejs*/
 define([
 	'../var/plugin',
 	'../var/tinymcePopup',

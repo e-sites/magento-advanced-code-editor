@@ -5,7 +5,7 @@
  * @see https://craig.is/riding/gators
  */
 
-/* global define */
+/*global define, Ajax*/
 define([
 	'codemirror/lib/codemirror',
 	'gator',
@@ -65,6 +65,22 @@ define([
 	}
 
 	/**
+	 * Starts with a clean sheet by emptying all editor textareas
+	 * Needed when inserting a template
+	 *
+	 * @private
+	 */
+	function _emptyTextAreas(editor) {
+		if ( stylesEditor ) {
+			stylesEditor.value = '';
+		}
+
+		util.forEach(editor.instances, function (el) {
+			el.getTextArea().value = '';
+		});
+	}
+
+	/**
 	 * Main init method that handles all necessary events
 	 *
 	 * @param  {Object} ed editor
@@ -72,30 +88,50 @@ define([
 	 */
 	function _init(cm, editor) {
 		// Create local reference
-		var cm = cm;
+		var cm = cm,
+			cursor;
 
 		// Handle preview template functionality by syncing values when
 		// the editor looses it's focus.
 		cm.on('blur', editor.syncValue);
+		cm.on('change', editor.syncValue);
 
 		// Create instance for template styles
 		_createCssEditor(editor);
 
-		// Variable insertation and template loading
+		// Listen for completed Ajax requests to see if we need to insert any snippets
+		if ( typeof Ajax !== 'undefined' ) {
+			Ajax.Responders.register({
+				onComplete: function () {
+					var args = arguments,
+						url;
+
+					if (args.length > 1) {
+						url = args[1].request.url;
+
+						if (url.indexOf('onInsert') > -1 || url.indexOf('buildWidget') > -1) {
+							editor.insertSnippet(args[1].responseText, cm, cursor);
+						}
+					}
+				}
+			});
+		}
+
+		// Event delegation
+		// Used for logic related to inserting templates, variables, images, widgets etc
 		Gator(document)
 			.on('click', '#variables-chooser_content a', function () {
 				editor.insertVariable(this, cm);
 			})
+			.on('mousedown', '.magento_close', function () {
+				clearInterval(timer);
+			})
 			.on('click', '#email_template_load_form button', function () {
-				if ( stylesEditor ) {
-					stylesEditor.value = '';
-				}
-
-				util.forEach(editor.instances, function (el) {
-					el.getTextArea().value = '';
-				});
-
+				_emptyTextAreas(editor);
 				timer = setInterval(util.proxy(_monitorChanges, cm), 250);
+			})
+			.on('click', '.add-image, .add-widget', function () {
+				cursor = cm.getCursor();
 			});
 	}
 

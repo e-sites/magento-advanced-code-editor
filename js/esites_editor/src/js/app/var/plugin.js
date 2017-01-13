@@ -3,7 +3,7 @@
  * Also, it formats the selected sections to an array
  */
 
-/* global define, esites_editor */
+/*global define, esites_editor*/
 define([
 	'./tinymcePopup'
 ], function (tinyMCEPopup) {

@@ -3,7 +3,7 @@
  * to all available addons
  */
 
-/* global define */
+/*global define*/
 define(function () {
 	'use strict';
 	return [];
