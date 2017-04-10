@@ -22,7 +22,7 @@
 <config>
     <tabs>
         <esites translate="label" module="editor">
-            <label><![CDATA[<img width="14" style="vertical-align:middle;display:inline-block;" src="http://frontend.e-sites.nl/img/esites-symbol.png" alt="" border="0"> E-sites]]></label>
+            <label><![CDATA[<img width="14" style="vertical-align:middle;display:inline-block;" src="https://static.e-sites.nl/magento/esites-symbol.png" alt="E-sites Caribbean" border="0"> E-sites]]></label>
             <sort_order>1000</sort_order>
         </esites>
     </tabs>

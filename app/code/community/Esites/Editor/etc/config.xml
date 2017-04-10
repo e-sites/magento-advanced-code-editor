@@ -22,7 +22,7 @@
 <config>
     <modules>
         <Esites_Editor>
-            <version>0.6.1</version>
+            <version>0.6.2</version>
         </Esites_Editor>
     </modules>
 
@@ -50,7 +50,7 @@
                 <enabled>0</enabled>
                 <enableFrontend>0</enableFrontend>
                 <sections>wysiwygpage_content</sections>
-                <selectors></selectors>
+                <selectors>#template_text</selectors>
             </general>
             <prefs>
                 <keymap>default</keymap>

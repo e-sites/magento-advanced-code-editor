@@ -10,8 +10,7 @@ define([
 	'use strict';
 
 	var targets = [
-		'#htmlSource', // WYSIWYG source editor
-		'#template_text' // Transactional Emails
+		'#htmlSource' // WYSIWYG source editor
 	];
 
 	if ( util.isArray(plugin.settings.selectors) ) {

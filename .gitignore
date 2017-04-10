@@ -46,3 +46,4 @@ tmp/**
 node_modules/
 assets/bower
 magento
+userguide.html

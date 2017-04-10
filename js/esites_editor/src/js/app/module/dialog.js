@@ -45,7 +45,7 @@ define([
 		resize: function () {
 			var vp = tinyMCEPopup.dom.getViewPort(window);
 
-			tinyMCEPopup.resizeToInnerSize();
+			//tinyMCEPopup.resizeToInnerSize();
 
 			if ( targets ) {
 				util.forEach(targets, function (textarea) {
